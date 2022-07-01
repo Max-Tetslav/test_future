@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { Provider } from 'react-redux';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Home from '@pages/home/Home';
+import Library from '@pages/library/Library';
+import Book from '@pages/book/Book';
+import 'antd/dist/antd.css';
+import '@styles/index.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      {/* <Provider store={store}> */}
+      <Routes>
+        <Route index element={<Navigate to="/library" />} />
+        <Route path="/library" element={<Home />}>
+          <Route index element={<Library />} />
+          <Route path=":id" element={<Book />} />
+        </Route>
+      </Routes>
+      {/* </Provider> */}
+    </HashRouter>
   );
-}
+};
 
 export default App;
