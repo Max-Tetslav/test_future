@@ -1,0 +1,23 @@
+.container {
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .searchBox {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+
+    .filterBox {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+  }
+}
