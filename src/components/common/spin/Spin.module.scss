@@ -1,0 +1,19 @@
+.container {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-top: 4px solid var(--blue-primary);
+  border-left: 2px solid var(--blue-primary);
+  transition: all 0.5s ease;
+  animation: 1s var(--fade-in), var(--spin) linear 2s infinite;
+}
+
+.small {
+  top: initial;
+  left: initial;
+  width: 20px;
+  height: 20px;
+  border-top: 1.5px solid var(--white);
+  border-left: 1px solid var(--white);
+}

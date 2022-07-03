@@ -68,7 +68,9 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
-      "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+      "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+      "value-no-vendor-prefix": null,
+      "property-no-vendor-prefix": null
     }
   }
 }

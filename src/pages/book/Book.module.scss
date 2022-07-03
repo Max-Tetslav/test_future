@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+}

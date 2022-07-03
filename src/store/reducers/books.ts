@@ -4,6 +4,7 @@ import { CATEGORY_LIST, SORT_LIST } from '@utils/constants/app';
 
 const initialState: IBookInitialState = {
   list: [],
+  total: 0,
   sort: SORT_LIST[0].name,
   category: CATEGORY_LIST[0].name,
   search: '',
@@ -20,6 +21,12 @@ const booksSlice = createSlice({
       } else {
         state.list = [...state.list, ...action.payload];
       }
+    },
+    clearList: (state) => {
+      state.list = [];
+    },
+    updateTotal: (state, action: PayloadAction<number>) => {
+      state.total = action.payload;
     },
     updateSearch: (state, action: PayloadAction<string>) => {
       if (state.startIndex > 0) {
@@ -63,6 +70,8 @@ export const {
   updateCategory,
   updateStartIndex,
   updateList,
+  clearList,
+  updateTotal,
 } = booksSlice.actions;
 
 export default booksSlice.reducer;

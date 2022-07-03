@@ -4,8 +4,8 @@ import {
   createApi,
   fetchBaseQuery,
 } from '@reduxjs/toolkit/dist/query/react';
-import { IGetBooksQuerryParams } from '@models/app';
-import { IBook, IResponse } from '@models/store';
+import { IGetBooksQuerryParams, IResponse } from '@models/app';
+import { IBook } from '@models/store';
 import getUrl from '@utils/helpers/getUrl';
 
 export const booksApi = createApi({

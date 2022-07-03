@@ -1,32 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
+import { IErrorResponse } from '@models/app';
 import booksApi from '@services/booksApi';
-import SpinFC from 'antd/lib/spin';
+import AppError from '@components/common/appError/AppError';
+import Spin from '@components/common/spin/Spin';
+import BookContent from '@components/common/bookContent/BookContent';
+import cl from './Book.module.scss';
 
-const Book = () => {
+const Book: FC = () => {
   const { id } = useParams();
 
-  const { data, isFetching } = booksApi.useGetBookQuery({
+  const { data, error, isFetching } = booksApi.useGetBookQuery({
     bookId: id as string,
   });
 
-  return (
-    <div>
-      {isFetching ? (
-        <SpinFC />
+  return isFetching ? (
+    <Spin loading={isFetching} />
+  ) : (
+    <div className={cl.container}>
+      {error ? (
+        <AppError code={(error as IErrorResponse).status} />
       ) : (
-        <>
-          <img src={data?.volumeInfo.imageLinks.thumbnail} alt="" />
-          <h2>{data?.volumeInfo.title}</h2>
-          <p>
-            {data?.volumeInfo.authors
-              ? data?.volumeInfo.authors.join(', ')
-              : ''}
-          </p>
-          <p>
-            {data?.volumeInfo.categories ? data?.volumeInfo.categories[0] : ''}
-          </p>
-        </>
+        <BookContent book={data} />
       )}
     </div>
   );

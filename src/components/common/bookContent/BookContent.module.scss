@@ -1,0 +1,48 @@
+.imgBox {
+  padding: 40px 0;
+  width: 30%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid rgba(0 0 0 / 20%);
+
+  .img {
+    height: 400px;
+    box-shadow: 2px 2px 10px 4px rgba(0 0 0 / 20%);
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    min-height: 55vh;
+    padding: 20px;
+  }
+}
+
+.infoBox {
+  padding: 40px;
+  width: 70%;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .category {
+    text-decoration: underline;
+  }
+
+  .descBox {
+    height: 50%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 390px) {
+    padding: 20px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    min-height: 55vh;
+    padding-top: 0;
+  }
+}

@@ -1,0 +1,18 @@
+.error {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  .code {
+    margin: 0;
+    font-size: 70px;
+  }
+
+  .text {
+    margin: 0;
+    font-size: 50;
+  }
+}

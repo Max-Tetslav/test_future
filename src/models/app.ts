@@ -9,3 +9,13 @@ export interface INameId {
   name: string;
   id: number;
 }
+
+export interface IErrorResponse {
+  status: number | string;
+}
+
+export interface IResponse<T> {
+  items: Array<T>;
+  totalItems: number;
+  error?: unknown;
+}

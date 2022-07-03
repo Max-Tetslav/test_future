@@ -1,23 +1,22 @@
 .container {
-  min-height: 200px;
+  min-height: 30vh;
   width: 100%;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(0deg, rgba(0 0 0 / 40%), rgba(0 0 0 / 40%)), url("../../assets/img/background.jpeg");
 
-  .searchBox {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 50%;
+  .title {
+    color: var(--white);
+  }
 
-    .filterBox {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 50px;
+  @media screen and (max-width: 390px) {
+    gap: 10px;
+
+    .title {
+      margin: 0;
     }
   }
 }

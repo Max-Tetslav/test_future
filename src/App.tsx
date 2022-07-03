@@ -5,7 +5,6 @@ import { store } from '@store/index';
 import Home from '@pages/home/Home';
 import Library from '@pages/library/Library';
 import Book from '@pages/book/Book';
-import 'antd/dist/antd.css';
 import '@styles/index.scss';
 
 const App = () => {

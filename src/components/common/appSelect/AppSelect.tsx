@@ -1,6 +1,5 @@
-import React, { FC, useCallback } from 'react';
+import React, { ChangeEvent, FC, useCallback } from 'react';
 import { INameId } from '@models/app';
-import { Select } from 'antd';
 import cl from './AppSelect.module.scss';
 
 export interface IBookListProps {
@@ -10,30 +9,29 @@ export interface IBookListProps {
   setValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const { Option } = Select;
-
 const AppSelect: FC<IBookListProps> = ({ list, label, value, setValue }) => {
-  const changeHandler = useCallback((select: string) => {
-    setValue(select);
+  const changeHandler = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
+    setValue(e.target.value);
   }, []);
 
   return (
     <label className={cl.label} htmlFor={label}>
       {label}
-      <Select
+      <select
+        className={cl.select}
         defaultValue={list[0].name}
         value={value}
         id={label}
         onChange={changeHandler}
       >
         {list.map(({ name, id }) => (
-          <Option value={name} key={id}>
+          <option value={name} key={id}>
             {name}
-          </Option>
+          </option>
         ))}
-      </Select>
+      </select>
     </label>
   );
 };
 
-export default AppSelect;
+export default React.memo(AppSelect);
