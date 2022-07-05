@@ -14,15 +14,11 @@ const Book: FC = () => {
     bookId: id as string,
   });
 
-  return isFetching ? (
-    <Spin />
-  ) : (
+  return (
     <div className={cl.container}>
-      {error ? (
-        <AppError code={(error as IErrorResponse).status} />
-      ) : (
-        <BookContent book={data} />
-      )}
+      {isFetching && <Spin />}
+      {error && <AppError code={(error as IErrorResponse).status} />}
+      {data && <BookContent book={data} />}
     </div>
   );
 };
