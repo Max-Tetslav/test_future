@@ -43,7 +43,7 @@ const Library: FC = () => {
 
   return (
     <div className={cl.container}>
-      {isUninitialized && <p className={cl.empty}>Пусто</p>}
+      {isUninitialized && <p className={cl.empty}>Enter your request</p>}
       {isFetching && <Spin className={cl.spin} />}
       {error && <AppError code={(error as IErrorResponse).status} />}
       {list.length ? (

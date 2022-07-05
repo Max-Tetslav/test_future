@@ -13,7 +13,7 @@ const AppButton: FC<IAppButtonProps> = ({ onClick, loading, children }) => {
 
   return (
     <button className={classes} type="button" onClick={onClick}>
-      {!loading ? children : <Spin loading={loading} />}
+      {!loading ? children : <Spin small />}
     </button>
   );
 };

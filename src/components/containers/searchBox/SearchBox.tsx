@@ -6,6 +6,7 @@ import React, {
   useState,
 } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { TAction } from '@models/store';
 import { useAppDispatch } from '@store/index';
 import {
   updateCategory,
@@ -29,28 +30,24 @@ const SearchBox: FC = () => {
     setSearch(e.target.value);
   }, []);
 
-  const searchHandler = useCallback(() => {
+  const updateData = useCallback((value: string, action: TAction<string>) => {
     if (id) {
       navigate('/library');
     }
 
-    dispatch(updateSearch(search));
+    dispatch(action(value));
+  }, []);
+
+  const searchHandler = useCallback(() => {
+    updateData(search, updateSearch);
   }, [search]);
 
   useEffect(() => {
-    if (id) {
-      navigate('/library');
-    }
-
-    dispatch(updateSort(sort));
+    updateData(sort, updateSort);
   }, [sort]);
 
   useEffect(() => {
-    if (id) {
-      navigate('/library');
-    }
-
-    dispatch(updateCategory(category));
+    updateData(category, updateCategory);
   }, [category]);
 
   return (

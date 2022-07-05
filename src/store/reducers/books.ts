@@ -1,6 +1,10 @@
 import { IBook, IBookInitialState } from '@models/store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CATEGORY_LIST, SORT_LIST } from '@utils/constants/app';
+import {
+  CATEGORY_LIST,
+  PAGINATION_STEP,
+  SORT_LIST,
+} from '@utils/constants/app';
 
 const initialState: IBookInitialState = {
   list: [],
@@ -43,23 +47,19 @@ const booksSlice = createSlice({
         state.startIndex = 0;
       }
 
-      if (state.search !== action.payload) {
-        state.list = [];
-        state.sort = action.payload;
-      }
+      state.list = [];
+      state.sort = action.payload;
     },
     updateCategory: (state, action: PayloadAction<string>) => {
       if (state.startIndex > 0) {
         state.startIndex = 0;
       }
 
-      if (state.search !== action.payload) {
-        state.list = [];
-        state.category = action.payload;
-      }
+      state.list = [];
+      state.category = action.payload;
     },
     updateStartIndex: (state) => {
-      state.startIndex += 30;
+      state.startIndex += PAGINATION_STEP;
     },
   },
 });

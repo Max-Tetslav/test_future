@@ -24,6 +24,7 @@ const AppSearch: FC<IBookListProps> = ({ onSearch, value, setValue }) => {
       value={value}
       onChange={setValue}
       onKeyDown={enterHandler}
+      data-testid="search"
     />
   );
 };

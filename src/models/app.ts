@@ -5,6 +5,10 @@ export interface IGetBooksQuerryParams {
   type: string;
 }
 
+export interface IGetBookQuerryParams {
+  bookId: string;
+}
+
 export interface INameId {
   name: string;
   id: number;

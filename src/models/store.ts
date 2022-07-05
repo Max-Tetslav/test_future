@@ -2,20 +2,21 @@ export interface IBook {
   volumeInfo: {
     authors: string[];
     imageLinks: IBookImg;
-    categories: string[] | undefined;
+    categories?: string[];
     title: string;
-    description: string | undefined;
+    description?: string;
   };
   id: string;
+  etag: string;
 }
 
 export interface IBookImg {
-  extraLarge: string | undefined;
-  large: string | undefined;
-  medium: string | undefined;
-  small: string | undefined;
-  smallThumbnail: string | undefined;
-  thumbnail: string | undefined;
+  extraLarge?: string;
+  large?: string;
+  medium?: string;
+  small?: string;
+  smallThumbnail?: string;
+  thumbnail?: string;
 }
 
 export interface IBookInitialState {
@@ -26,3 +27,5 @@ export interface IBookInitialState {
   search: string;
   startIndex: number;
 }
+
+export type TAction<T> = (payload: T) => { payload: T; type: string };

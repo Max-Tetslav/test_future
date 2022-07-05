@@ -21,7 +21,7 @@ const BookList: FC<IBookListProps> = ({ loading }) => {
     <>
       <div className={cl.list}>
         {list.map((item) => (
-          <BookCard book={item} key={item.id} />
+          <BookCard book={item} key={item.etag} />
         ))}
       </div>
       {/* В API какая-то ошибка. Каждый раз когда нажимаешь load more c новыми данными приходит увеличенное число total

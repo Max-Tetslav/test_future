@@ -15,7 +15,7 @@ const Book: FC = () => {
   });
 
   return isFetching ? (
-    <Spin loading={isFetching} />
+    <Spin />
   ) : (
     <div className={cl.container}>
       {error ? (

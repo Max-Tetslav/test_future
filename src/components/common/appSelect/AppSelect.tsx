@@ -19,9 +19,9 @@ const AppSelect: FC<IBookListProps> = ({ list, label, value, setValue }) => {
       {label}
       <select
         className={cl.select}
-        defaultValue={list[0].name}
         value={value}
         id={label}
+        data-testid={label}
         onChange={changeHandler}
       >
         {list.map(({ name, id }) => (

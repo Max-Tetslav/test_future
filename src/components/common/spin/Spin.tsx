@@ -4,13 +4,13 @@ import cl from './Spin.module.scss';
 
 interface ISpinProps {
   className?: string;
-  loading?: boolean;
+  small?: boolean;
 }
 
-const Spin: FC<ISpinProps> = ({ className, loading }) => {
-  const classes = classNames(cl.container, className, { [cl.small]: loading });
+const Spin: FC<ISpinProps> = ({ className, small }) => {
+  const classes = classNames(cl.container, className, { [cl.small]: small });
 
-  return <div className={classes} />;
+  return <div className={classes} data-testid="spin" />;
 };
 
 export default React.memo(Spin);

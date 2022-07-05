@@ -7,7 +7,7 @@ interface IErrorProps {
 
 const AppError: FC<IErrorProps> = ({ code }) => {
   return (
-    <div className={cl.error}>
+    <div className={cl.error} data-testid="error">
       <h2 className={cl.code}>{code}</h2>
       <p className={cl.text}>Something went wrong...</p>
     </div>

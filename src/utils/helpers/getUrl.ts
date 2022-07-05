@@ -1,4 +1,4 @@
-import { API_KEY, CATEGORY_LIST } from '@utils/constants/app';
+import { API_KEY, CATEGORY_LIST } from '../constants/app';
 
 const getUrl = (q: string, start: number, by: string, type: string): string => {
   const base = `/?maxResults=30&printType=books&key=${API_KEY as string}`;
